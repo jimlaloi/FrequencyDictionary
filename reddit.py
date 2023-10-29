@@ -1,11 +1,11 @@
-import os, praw
+import os, praw, time
 
 # SUPPLY YOUR APP'S INFO
-reddit = praw.Reddit(client_id= 'SnfpmlK7WdT9wZ5lqsZw9g',  # 14-character code
-                     client_secret='ejQ3cWCSMA5gXuYq7rfnGSqrmdPT_A',  # 27-character code
-                     user_agent= 'Jim Law',  # your app's name
-                     username='macnfleas',  # your reddit username
-                     password='Slughorn6')  # your reddit password
+reddit = praw.Reddit(client_id= '',  # 14-character code
+                     client_secret='',  # 27-character code
+                     user_agent= '',  # your app's name
+                     username='',  # your reddit username
+                     password='')  # your reddit password
 
 
 # SPECIFY THE SUBREDDIT COMMUNITIES YOU WANT TO SCRAPE
@@ -30,13 +30,11 @@ subreddits_to_search = ['france',
                         'Aquitaine',
                         'Auvergne',
                         'Bordeaux',
-                        'Bourgogne',
                         'Bretagne',
                         'Caen',
                         'Cherbourg',
                         'Clermontfd',
                         'Franchecomte',
-                        'GrandSud',
                         'Grenoble',
                         'JustMarseilleThings',
                         'Lehavre',
@@ -62,7 +60,6 @@ subreddits_to_search = ['france',
                         'Tours',
                         'guadeloupe',
                         'lareunion',
-                        'martinique',
                         'reunionisland',
                         'Tahiti',
                         'nouvelle_caledonie',
@@ -79,14 +76,11 @@ subreddits_to_search = ['france',
                         'Madagascar',
                         'maroc',
                         'acadie',
-                        'Quebec',
                         'metaquebec',
-                        'montreal',
                         'expatriation',
                         'Cuisine',
                         'BellePatisserie',
                         'anglais',
-                        'Breton',
                         'FrancaisCanadien',
                         'francophonie',
                         'GrosMots',
@@ -96,7 +90,6 @@ subreddits_to_search = ['france',
                         'QuestionsDeLangue',
                         'philosophie',
                         'ExpressionEcrite',
-                        'Livres',
                         'nouvelles',
                         'OCPoesie',
                         'mangafr',
@@ -104,8 +97,6 @@ subreddits_to_search = ['france',
                         'EcouteCa',
                         'frenchelectro',
                         'frenchrap',
-                        'frenchrock',
-                        'musiquefrancaise',
                         'vendredimusique',
                         'cinemacinema',
                         'FilmsFR',
@@ -113,7 +104,6 @@ subreddits_to_search = ['france',
                         'ParlonsSerie',
                         'ivrevirgule',
                         'paslegorafi',
-                        'jememarre',
                         'gifsuryvette',
                         'unexpectedgwennhadu',
                         'alimentation',
@@ -122,7 +112,6 @@ subreddits_to_search = ['france',
                         'besoindeparler',
                         'santementale',
                         'PasDeQuestionIdiote',
-                        'plusunegoutte',
                         'AddictionsFR',
                         'ParentingFR',
                         'conseiljuridique',
@@ -130,39 +119,27 @@ subreddits_to_search = ['france',
                         'sexualitefr',
                         'SocialParis',
                         'TinderFrance',
-                        'AJEstUnCon',
-                        'AJEstUnConLibre',
                         'BestOfFrance',
-                        'bussiere',
                         'commeDitLaJeuneMariee',
-                        'ConnardsDeParisiens',
                         'EnculesDeProvinciaux',
-                        'EnTouteModestie',
-                        'FanclubDeChefVautour',
                         'Franceboule',
                         'redditarou',
                         'franse',
                         'franselibre',
                         'jesuistresintelligent',
-                        'lafamilledechapalyn',
                         'nouvelletaglinedusub',
                         'pariscirclejerk',
-                        'rance',
-                        'ranse',
                         'SansDecPoirot',
                         'lestaxissontdescons',
-                        'UberCestDesGrosPedes',
-                        'Malaise',
-                        'OracleJDBC/',
-                        'Bellygareth/',
-                        'Perry75',
-                        'JeSuisEnCPEtCestDrole/',
+                        'Malaisetopie',
+                        'OracleJDBC',
+                        'Bellygareth',
+                        'JeSuisEnCPEtCestDrole',
                         'mecsfous',
                         'franceUltraLibre',
                         'jeuairfrance',
                         'dota2france',
                         'jdr',
-                        'jeuxvideo',
                         'esportfr',
                         'GuidesJV',
                         'leagueoflegendsFR',
@@ -172,24 +149,23 @@ subreddits_to_search = ['france',
                         'Ligue1',
                         'pedale',
                         'smcaen',
-                        'SquaredCircle_FR',
-                        'FitnessFrance/',
+                        'FitnessFrance',
                         'mangerbouger',
                         'grimpe',
                         'BitcoinFrance',
-                        'entraideinformatique',
                         'FrenchTech',
-                        'GentilsVirus',
                         'PodcastFrancais',
                         'programmation',
                         'ScienceFr',
                         'zetetique',
                         'AutoHebergement',
-                        'arduino_raspPi_FR/',
+                        'arduino_raspPi_FR',
                         'anarchisme',
                         'FrontdeGauche',
                         'nuitdebout',
-                        'Politique',
+                        'Politiquefrancaise',
+                        'politiquedumonde',
+                        'politiquequebec',
                         'quefaitlapolice',
                         'Justicedeclasse',
                         'ranm',
@@ -207,18 +183,17 @@ subreddits_to_search = ['france',
                         'painauchocolat',
                         'chocolatine',
                         'jardin',
+                        'jardinage',
+                        'jardinageQc',
                         'voitures',
                         'conspiration',
                         'forumlibre',
-                        'jailu',
                         'truefrance',
                         'renseignement',
-                        'effondrement/',
+                        'effondrement',
                         'VideosFrancais',
-                        'Eveil',
                         'vieuxcons',
-                        'videosderepas/',
-                        'prepaHEC',
+                        'videosderepas',
                         'fonctionpublique_fr',
                         'causerie',
                         'MemeFrancais',
@@ -235,12 +210,12 @@ subreddits_to_search = ['france',
                         'Montreal_Francais',
                         'TwitchFR',
                         'france6',
-                        'leagueoflegendsFR',
                         'BonneBouffe',
                         'FranceDigeste',
                         'actualite',
                         'LetsNotMeetFR',
                         'placeFR',
+                        'placefrance',
                         'ecologie',
                         'EnculerLesVoitures',
                         'rienabranler',
@@ -254,19 +229,24 @@ subreddits_to_search = ['france',
                         'ScienceFiction_FR',
                         'okcopainattard',
                         'bonjour',
-                        'Giscardpunk'
+                        'Giscardpunk',
+                        'FranceRugby',
+                        'FranceFIRE',
+                        'ProvenceFrance'
                         ]
 
-# SPECIFY THE MAXIMUM NUMBER OF COMMENTS TO SCRAPE
-max_comments = 1000
-os.chdir(r"C:\Users\lawj2\OneDrive - BYU\Research\3 - Projects in writing stage\French frequency dictionary\Corpus\Reddit scrape")
+os.chdir("/Reddit scrape")
+
+# set number of seconds to sleep between each request for more comments
+# If you get "Too many requests" errors, increase the sleep time
+t = 3
 
 for s in subreddits_to_search:
     with open(s + ".txt", "w", encoding="utf-8") as fout:
         print("Working on subreddit:", s)
         subreddit = reddit.subreddit(s)
 
-        top_subs = subreddit.top(limit = max_comments)
+        top_subs = subreddit.top(limit = None)
 
         topics_dict = {}
         topics_dict["title"] = []
@@ -286,6 +266,7 @@ for s in subreddits_to_search:
         for index,id in enumerate(ids):
             print("Working on id #" + str(index + 1) + ":", id)
             submission = reddit.submission(id)
-            submission.comments.replace_more(limit= 0)
+            submission.comments.replace_more(limit= None)
             for comment in submission.comments.list():
                 fout.write(comment.body + "\n")
+            time.sleep(t)
